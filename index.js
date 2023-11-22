@@ -3,12 +3,12 @@ const bodyparser =require("body-parser");
 const ejs = require('ejs');
 const app = express();
 
-// app.use(bodyparser.urlencoded({extended:true}));
+app.use(bodyparser.urlencoded({extended:true}));
 
-// app.use('view engine', 'ejs');
+app.set('view engine', 'ejs');
 
 app.get("/",function(req, res){
-    res.sendFile(__dirname + "/index.html");
+    res.render("app", {newitem :"ejs is working"});
 });
 
 app.listen(3000,()=>{console.log('its working sir')});
