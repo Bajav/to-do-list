@@ -12,7 +12,9 @@
             <h1><%= time %></h1>
             <ul class="list-items">
                 <li >Work on myself</li>
-                <li><%= newitem %></li>
+               <% for(var i =0; i<newListItems.length; i++){ %>
+                    <li><%= newListItems[i] %></li>
+                <%}%>
             </ul>
         </div>
         <div class="input-field">
