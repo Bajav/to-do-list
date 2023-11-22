@@ -9,9 +9,18 @@ app.set('view engine', 'ejs');
 // getting the date and time
 
 const timeAndDay = new Date();
-const time = timeAndDay.toLocaleTimeString();
+// time auto refresh
+
+let time = "";
+
+const currentTime = setInterval(() => {
+  const timeAndDay = new Date();
+  time = timeAndDay.toLocaleTimeString();
+//   console.log(time);
+}, 1000);
+
 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
-const today = timeAndDay.toLocaleDateString();
+const today = timeAndDay.toLocaleDateString("en-US", options);
 app.get("/",function(req, res){
     res.render("app", {newitem :"ejs is working", today :today,time:time});
 });
